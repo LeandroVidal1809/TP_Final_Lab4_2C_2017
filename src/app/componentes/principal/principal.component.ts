@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { PersonaService } from  '../../servicios/persona.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {BotonComponent} from '../boton/boton.component';
 @Component({
   selector: 'app-principal',
@@ -9,60 +10,52 @@ import {BotonComponent} from '../boton/boton.component';
 })
 export class PrincipalComponent implements OnInit {
   unarray:any;
-  settings = {
-    columns: {
-      Nombre: {
-        title: 'Nombre'
-      },
-      Apellido: {
-        title: 'Apellido'
-      },
-      Sexo: {
-        title: 'Sexo'
-      },
-      Direccion: {
-        title: 'Direccion'
-      },
-      Coordenada: {
-        title: 'Coordenada'
-      },
-      button: {
-        title: 'Button',
-        type: 'custom',
-        renderComponent: BotonComponent,
-        onComponentInitFunction(instance) 
-        {
-          instance.save.subscribe(row => {
-            alert(`${row.Nombre} saved!`)
-          });
-        }
-      }
-    }
-  };
-
-  constructor(private PersonaS:PersonaService) {
   
+
+  constructor(private PersonaS:PersonaService,private route: ActivatedRoute,
+    private router: Router) {
+
+      if(sessionStorage.getItem("token")==undefined)
+        {
+          this.router.navigate(['/Login']);
+        }
     this.unarray = new Array<any>();
-    this.TraerDatos();
+  
    }
 
  
+   EnviaMsj()
+   {
+     alert("Su consulta fue enviada!, a la brevedad sera contactado ");
+   }
 
 
+   Redirect(ruta:string)
+   {
+     debugger;
+     switch(ruta)
+     {
+
+      case 'Kind':
+      this.router.navigate(['/Reservas']);
+      localStorage.setItem("Tipo","Kind");
+      break;
+      case 'Extend':
+      this.router.navigate(['/Reservas']);
+      localStorage.setItem("Tipo","Extend");
+      break;
+      case 'Confort':
+      this.router.navigate(['/Reservas']);
+      localStorage.setItem("Tipo","Confort");
+      break;
+     }
+   }
   ngOnInit() {
   }
+cerrar()
+{
+sessionStorage.clear();
+this.router.navigate(['']);
+}
 
-  
-  TraerDatos()
-  {
-    this.PersonaS.TraerDatos()
-    .then(lista=>{this.unarray=lista;
-      this.unarray.forEach(element => {
-        console.log(element);
-      });  
-    })
-    .catch(e=>{alert("Fallo")});
-
-  
-  }
 }

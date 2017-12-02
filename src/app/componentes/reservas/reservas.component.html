@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+<script src="node_modules/primeui/primeui-ng-all.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABM LISTA INVITADOS</a>
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER LISTA</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CARGAR MESAS</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">RESERVAS <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a  (click)="Redirect('Confort')" class="w3-bar-item w3-button">Palace Confort</a>
+        <a (click)="Redirect('Extend')" class="w3-bar-item w3-button">Palace Extend</a>
+        <a (click)="Redirect('Kids')" class="w3-bar-item w3-button">Palace Kids</a>
+      </div>
+    </div>
+    <a href="javascript:void(0)" (click)="cerrar()" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Cerrar Sesión &nbsp;<i class="fa fa-times" aria-hidden="true"></i></a>
+  </div>
+</div>
+<br><br><br><br><br><br>
+<div class="container">
+  <h1>Palace  {{tipo}}</h1>
+  <div class="row">
+      <div class='col-sm-4'>
+        
+          <div class="form-group">
+            <br><br>
+
+  <div class="ui-g-12 ui-md-4">
+    <label style="font-size:20px;">Fecha:</label><p-calendar  [(ngModel)]="date2" [locale]="es" dateFormat="dd/mm/yy"></p-calendar> {{date2|date}}
+    </div>                
+  </div>  
+          
+         
+      </div>
+      <div class='col-sm-4'>
+          <button (click)="Reserva()" class="btn1"><span>Reserva! </span></button>
+      </div>
+ </div>

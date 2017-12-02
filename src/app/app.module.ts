@@ -11,12 +11,22 @@ import { ArchivoPersonaService } from  './servicios/archivo-persona.service';
  import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { LoginComponent } from './componentes/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
+import { ReservasComponent } from './componentes/reservas/reservas.component';
+import * as $ from 'jquery';
+import './componentes/reservas/form.js';
+import { CargamesaComponent } from './componentes/cargamesa/cargamesa.component';
+import {CalendarModule} from 'primeng/primeng';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 @NgModule({
   declarations: [
     AppComponent,
     BotonComponent,
     PrincipalComponent,
-    LoginComponent
+    LoginComponent,
+    ReservasComponent,
+    CargamesaComponent,
+    InicioComponent
   ],
   entryComponents: [
   BotonComponent
@@ -25,9 +35,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     RuteandoModule,
     FormsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,CalendarModule
   ],
-  providers: [MiHttpService,PersonaService,ArchivoPersonaService],
+  providers: [MiHttpService,PersonaService,CalendarModule,ArchivoPersonaService, NguiDatetimePickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

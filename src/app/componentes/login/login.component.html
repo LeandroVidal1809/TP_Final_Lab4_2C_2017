@@ -3,19 +3,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<div class="container">
-	<div class="row">
-		<!-- <h2>Fancy Login / Registration form</h2> -->
-	</div>
-</div>
-<br>
-<br>
-<div class="container">
+
+<body class="Fondo">
+
+        <select class="selectpicker" (click)="inserta()" [(ngModel)]="tipoUsuario" data-style="btn-primary">
+                <option>Administración</option>    
+                <option>Empleado</option>
+                <option>Encargado</option>
+                <option>Cliente</option>
+              </select>
+
+        <!-- LOGIN  -->
+<div  [hidden]="!cambia" class="container">
+    
 <div class="row">
+   
 <div class="col-md-4 col-md-offset-4">
 <div class="form-body">
+        <button type="submit" class="registrar" (click)="cambiar()">Registrarse como cliente<span style="float:right;" class="glyphicon glyphicon-plus-sign"></span></button>
     <ul class="nav nav-tabs final-login">
-    <h4 data-toggle="tab" style="margin-left:10%;"   >Segundo Parcial Leandro Vidal</h4>
+    <h4 data-toggle="tab" style="margin-left:8%;"   >Salon de Eventos Palace Eventual </h4>
     <h4 data-toggle="tab" class="active1"   >Iniciar Sesión</h4>  
   </ul>
     <div class="tab-content">
@@ -25,8 +32,9 @@
             <label>Direccion de correo electronico</label>
             <input id="username" type="text"  [(ngModel)]="username" class="form-control" name="username" placeholder="Ingresa tu Email">
             <label>Clave</label>
-            <input id="username" type="password"  [(ngModel)]="password" class="form-control" name="username" placeholder="Ingresa tu clave">            
+            <input id="password" type="password"  [(ngModel)]="password" class="form-control" name="password" placeholder="Ingresa tu clave">            
             <button type="submit" (click)="login()">Entrar</button>
+           
             <!-- <a href="">Forgot Password?</a> -->
             </form>
           </div>
@@ -37,6 +45,49 @@
     </div>
     </div>
 
-     <!-- <button style="width:30%;font-size:9px;"  (click)="CargarADM('Administrador')" >Admin</button>
-            <button style="width:30%;font-size:12px;"  (click)="CargarADM('Profesor')" >Profesor</button> 
-            <button style="width:30%;font-size:9px;"  (click)="CargarADM('Administrativo')" >Administrativo</button> -->
+
+
+
+
+<!-- REGISTRAR -->
+
+<div [hidden]="cambia" class="container">
+        
+    <div class="row">
+       
+    <div class="col-md-4 col-md-offset-4">
+    <div class="form-body">
+            <!-- <button type="submit" class="registrar">Registrarse como cliente<span style="float:right;" class="glyphicon glyphicon-plus-sign"></span></button> -->
+        <ul class="nav nav-tabs final-login">
+        <!-- <h4 data-toggle="tab" style="margin-left:8%;"   >Salon de Eventos Palace Eventual </h4> -->
+        <h4 data-toggle="tab" class="active1"   >Registrarse</h4>  
+      </ul>
+        <div class="tab-content">
+          
+            <div class="innter-form">
+                <form class="sa-innate-form" method="post">
+                <label>Nombre</label>
+                <input id="NombreR" type="text"  [(ngModel)]="NombreR" class="form-control" name="NombreR" placeholder="Ingresa tu Nombre">
+                <label>Usuario</label>
+                <input id="UsernameR" type="text"  [(ngModel)]="UsernameR" class="form-control" name="UsernameR" placeholder="Ingresa tu Usuario">
+                <label>Email</label>
+                <input id="EmailR" type="text"  [(ngModel)]="EmailR" class="form-control" name="EmailR" placeholder="Ingresa tu Email">
+                <label>Clave</label>
+                <input id="PasswordR" type="password"  [(ngModel)]="PasswordR" class="form-control" name="PasswordR" placeholder="Ingresa tu clave">            
+                <label>Confirmar clave</label>
+                <input id="PasswordConfirmR" type="password"  [(ngModel)]="PasswordConfirmR" class="form-control" name="PasswordConfirmR" placeholder="Confirma tu clave">            
+                <button type="submit" style="background-color: green;border:1px solid#000" (click)="registrar()">Aceptar</button>
+                <button type="submit"  style="background-color: red;border:1px solid#000;" (click)="cambiar()">Cancelar</button>
+                
+               
+                <!-- <a href="">Forgot Password?</a> -->
+                </form>
+              </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    <br><br><br><br><br><br><br>        <br><br><br><br><br>
+    </body>

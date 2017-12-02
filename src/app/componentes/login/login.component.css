@@ -27,17 +27,37 @@ body{
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
     color: #fff;
     font-size: 12px;
-    background-color: #d14d42;
+    background-color: #162A96;
     border: none !important;
     border-bottom-color: transparent;
     border-radius:none !important;
 }
 
+
+.Fondo{
+    background-image: url("/assets/img/login.jpg"); 
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+    
+    /* Set a background color that will be displayed
+       while the background image is loading */
+    background-color: #464646;
+}
 .active1{
     color: #fff;
     font-size: 30px;
     text-align: center;
-    background-color: #d14d42;
+    background-color: #162A96;
     border: none !important;
     border-bottom-color: transparent;
     border-radius:none !important;
@@ -73,7 +93,7 @@ body{
 }
 .social-login ul li:nth-child(2) a{
     margin-top: 5%;
-    background:#e74c3d;
+    background:#7011F7;
 }
 .social-login ul li:nth-child(3) a{
    margin-top: 5%;
@@ -90,22 +110,22 @@ input[type=select], input[type=file], textarea, select, email{
     
 }
 .sa-innate-form input[type=submit]{
-    border:1px solid#e64b3b;
-    background:#e64b3b;
+    border:1px solid#020F55;
+    background:#162A96;
     color:#fff;
     padding:10px 25px;
     font-size:14px;
     margin-top:5px;
     }
     .sa-innate-form input[type=submit]:hover{
-    border:1px solid#db3b2b;
-    background:#db3b2b;
+    border:1px solid#0924B9;
+    background:#02105E;
     color:#fff;
     }
     
     .sa-innate-form button{
-    border:1px solid#e64b3b;
-    background:#e64b3b;
+    border:1px solid#162A96;
+    background:#162A96;
     color:#fff;
     padding:10px 25px;
     font-size:14px;
@@ -114,7 +134,7 @@ input[type=select], input[type=file], textarea, select, email{
     }
     .sa-innate-form button:hover{
     border:1px solid#000000;
-    background:#db3b2b;    
+    background:#162A96;    
     color:#000000;
     }
     .sa-innate-form p{
@@ -122,3 +142,14 @@ input[type=select], input[type=file], textarea, select, email{
         padding-top:10px;
     }
 
+    .registrar {
+        width:100%;
+        display:inline-block;
+        overflow: auto;
+        white-space: nowrap;
+        color:#fff;
+        margin:0px auto;
+        background:#162A96;  
+        border:1px #000000 solid;
+      }
+   

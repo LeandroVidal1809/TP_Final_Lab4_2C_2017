@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ArchivoPersonaService} from './archivo-persona.service';
-
+import { Usuario } from '../Clases/Usuario';
 @Injectable()
 export class PersonaService {
 
@@ -22,7 +22,25 @@ export class PersonaService {
     });
    
    
+
     // .then(jwt=>jwt)
     // .catch(e=>e);
+  }
+  Registrar(unUser:Usuario, callback: (mensaje: string) => void)
+  {
+   
+      this.AP.APIRegistrar("Usuario/",unUser, mensaje => { 
+      callback(mensaje);
+    });
+   
+  }
+
+  Reservar(fecha:string, callback: (mensaje: string) => void)
+  {
+
+    this.AP.APIReservar("Accion/",fecha, mensaje => { 
+      callback(mensaje);
+    });
+   
   }
 }
