@@ -1,9 +1,12 @@
-
-   
+<head>
+       
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="node_modules/angularjs-captcha/dist/angularjs-captcha.min.js"></script>
+<!-- <script src='https://www.google.com/recaptcha/api.js'></script>  -->
+<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+</head>
 <body class="Fondo">
 
         <select class="selectpicker" (click)="inserta()" [(ngModel)]="tipoUsuario" data-style="btn-primary">
@@ -76,11 +79,16 @@
                 <input id="PasswordR" type="password"  [(ngModel)]="PasswordR" class="form-control" name="PasswordR" placeholder="Ingresa tu clave">            
                 <label>Confirmar clave</label>
                 <input id="PasswordConfirmR" type="password"  [(ngModel)]="PasswordConfirmR" class="form-control" name="PasswordConfirmR" placeholder="Confirma tu clave">            
-                <button type="submit" style="background-color: green;border:1px solid#000" (click)="registrar()">Aceptar</button>
-                <button type="submit"  style="background-color: red;border:1px solid#000;" (click)="cambiar()">Cancelar</button>
+                <!-- <re-captcha site_key="6LexZTsUAAAAAEv5rVb4BXuTy54cBehRJ6wG2VcM"></re-captcha> -->
+                <re-captcha  site_key="6LdAWTsUAAAAACT5rnFH_QsmL2T-oNFWrla7q2rc"></re-captcha>
                 
-               
+                <!-- <div class="g-recaptcha" data-sitekey="6LexZTsUAAAAAAvXp4bzidshJ9f8V03G4CooGpCg"></div> -->
+                <button type="submit" style="background-color: green;border:1px solid#000" (click)="registrar()">Aceptar</button>
+                <button type="submit"  style="background-color: red;border:1px solid#000;" (click)="cambiar()">Cancelar</button>            
                 <!-- <a href="">Forgot Password?</a> -->
+  
+      <!-- <div class="g-recaptcha" data-sitekey="6LfSYDsUAAAAAN2D1iNCKYrHTBoiHgilxlYnDzZa"></div> -->
+      
                 </form>
               </div>
                 <div class="clearfix"></div>

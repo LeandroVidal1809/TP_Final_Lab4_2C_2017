@@ -1,0 +1,63 @@
+.invitado{
+    margin-left: 50%;
+    margin-top: 2%;
+}
+
+.btn1 {
+    border-radius: 10px;
+    background-color: #080032;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 240px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 50%;
+  }
+  
+  .btn1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .btn1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .btn1:hover span {
+    padding-right: 25px;
+  }
+  
+  .btn1:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  
+  .Fondo{
+    background-image: url("/assets/img/cargamesa.jpg"); 
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+    
+    /* Set a background color that will be displayed
+       while the background image is loading */
+    background-color: #464646;
+}

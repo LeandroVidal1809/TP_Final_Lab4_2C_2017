@@ -54,6 +54,53 @@ export class MiHttpService {
    
   }
 
+
+  PostTraeReservas( url:string, callback: (r: Response) => void)
+  {
+    
+    var cliente = localStorage.getItem("cliente");
+    var salon = localStorage.getItem("Tipo");
+    let data = new URLSearchParams();
+    data.append('cliente', cliente);
+    data.append('salon',salon);
+        this.http
+       .post(url,data)
+       .map(res => res)  
+       .subscribe(callback, 
+         error => {
+           alert("Ocurrio un error al registrarse" );
+         });
+   
+  }
+  PostCargaMesa(url:string,fecha:string,mesa:string,salon:string,lista:Array<any>, callback: (r: Response) => void)
+  {
+  let data = new URLSearchParams();
+
+   data.append('fecha',fecha);
+   data.append('mesa',mesa);
+   data.append('salon',salon);
+   data.append('invitado1', lista[0]);
+   data.append('invitado2', lista[1]);
+   data.append('invitado3', lista[2]);
+   data.append('invitado4', lista[3]);
+   data.append('invitado5', lista[4]);
+   data.append('invitado6', lista[5]);
+   data.append('invitado7', lista[6]);
+   data.append('invitado8', lista[7]);
+   data.append('invitado9', lista[8]);
+   data.append('invitado10', lista[9]);
+
+
+   debugger;
+       this.http
+      .post(url,data)
+      .map(res => res)  
+      .subscribe(callback, 
+        error => {
+          alert("Ocurrio un error al registrarse" );
+        });
+  }
+ 
   PostRegistrar(url:string,unUser:Usuario, callback: (r: Response) => void)
   {
   let data = new URLSearchParams();

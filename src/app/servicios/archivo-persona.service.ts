@@ -37,6 +37,24 @@ export class ArchivoPersonaService {
        callback(mensaje);
      }); 
    }
+   public  APICargaMesa(Ruta:string,fecha:string,mesa:string,salon:string,lista:Array<any>, callback: (mensaje: string) => void)
+   { 
+     var rta =  this.mihttp.PostCargaMesa(path + Ruta ,fecha,mesa,salon,lista, data => { 
+        var mensaje = JSON.parse(data.text()).mensaje;
+        callback(mensaje);
+      }); 
+    }
+  
+    public APIGetReserva(Ruta:string, callback: (data: any) => void)
+   {
+    var rta =  this.mihttp.PostTraeReservas(path + Ruta , data => {;
+     
+      var datos = data.json();
+      callback(datos);
+    }); 
+
+   }
+   
   
 
 }

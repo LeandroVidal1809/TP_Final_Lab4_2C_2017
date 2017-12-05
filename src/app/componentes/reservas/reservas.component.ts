@@ -93,4 +93,29 @@ this.router.navigate(['']);
       }
   });
  }
+
+
+ Redirect(ruta:string)
+ {
+   debugger;
+   switch(ruta)
+   {
+
+    case 'Kind':
+    this.router.navigate(['/Reservas']);
+    localStorage.setItem("Tipo","Kind");
+    break;
+    case 'Extend':
+    this.router.navigate(['/Reservas']);
+    localStorage.setItem("Tipo","Extend");
+    break;
+    case 'Confort':
+    this.router.navigate(['/Reservas']);
+    localStorage.setItem("Tipo","Confort");
+    break;
+    case  'Cargamesa':
+    this.router.navigate(['/CargarMesas']);      
+    break;
+   }
+ }
 }

@@ -1,7 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  NgZone,
+  ViewChild, ElementRef, forwardRef
+} from '@angular/core';
+import { ReCaptchaComponent } from 'angular2-recaptcha';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { ReCaptchaService } from '../../servicios/captcha.service';
 import { PersonaService } from  '../../servicios/persona.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Usuario } from '../../Clases/Usuario';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,14 +27,32 @@ export class LoginComponent implements OnInit {
   password:string;
 
   unUsuario:Usuario;
-
   EmailR:string;
   UsernameR:string;
   PasswordConfirmR:string;
   PasswordR:string;
   NombreR:string;
+  @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
+  @Input() site_key: string = "6LfSYDsUAAAAAN2D1iNCKYrHTBoiHgilxlYnDzZa";
+  @Input() theme = 'light';
+  @Input() type = 'image';
+  @Input() size = 'normal';
+  @Input() tabindex = 0;
+  @Input() badge = 'bottomright';
+  /* Available languages: https://developers.google.com/recaptcha/docs/language */
+  @Input() language: string = 'es';
+
+  @Output() captchaResponse = new EventEmitter<string>();
+  @Output() captchaExpired = new EventEmitter();
+
+  @ViewChild('target') targetRef: ElementRef;
+  widgetId: any = null;
+
+  onChange: Function = () => {};
+  onTouched: Function = () => {};
   constructor(private PersonaS:PersonaService,private route: ActivatedRoute,
-    private router: Router) { 
+    private router: Router , private _zone: NgZone,
+    private _captchaService: ReCaptchaService) { 
       this.tipoUsuario="Administración";
       debugger;
       this.inserta();
@@ -33,6 +63,22 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._captchaService.getReady(this.language)
+    .subscribe((ready) => {
+        if (!ready)
+            return;
+        // noinspection TypeScriptUnresolvedVariable,TypeScriptUnresolvedFunction
+        this.widgetId = (<any>window).grecaptcha.render(this.targetRef.nativeElement, {
+            'sitekey': this.site_key,
+            'badge': this.badge,
+            'theme': this.theme,
+            'type': this.type,
+            'size': this.size,
+            'tabindex': this.tabindex,
+            'callback': <any>((response: any) => this._zone.run(this.recaptchaCallback.bind(this, response))),
+            'expired-callback': <any>(() => this._zone.run(this.recaptchaExpiredCallback.bind(this)))
+        });
+    });
   }
 
 
@@ -94,6 +140,11 @@ cambiar()
       this.cambia=true;
 }
 
+checkCaptcha(response:any)
+{
+  alert("asd");
+  alert(response);
+}
 registrar()
 {
   if(this.UsernameR==null || this.PasswordR==null || this.PasswordConfirmR==null || this.NombreR==null || this.EmailR==null ||
@@ -122,4 +173,50 @@ registrar()
     });
     }
   }
+  public reset() {
+    if (this.widgetId === null)
+        return;
+    // noinspection TypeScriptUnresolvedVariable
+    (<any>window).grecaptcha.reset(this.widgetId);
+    this.onChange(null);
+}
+
+// noinspection JSUnusedGlobalSymbols
+public execute() {
+    if (this.widgetId === null)
+        return;
+    // noinspection TypeScriptUnresolvedVariable
+    (<any>window).grecaptcha.execute(this.widgetId);
+}
+
+public getResponse(): string {
+    if (this.widgetId === null)
+        return null;
+    // noinspection TypeScriptUnresolvedVariable
+    return (<any>window).grecaptcha.getResponse(this.widgetId);
+}
+
+writeValue(newValue: any): void {
+    /* ignore it */
+}
+
+registerOnChange(fn: any): void {
+    this.onChange = fn;
+}
+
+registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+}
+
+private recaptchaCallback(response: string) {
+    this.onChange(response);
+    this.onTouched();
+    this.captchaResponse.emit(response);
+}
+
+private recaptchaExpiredCallback() {
+    this.onChange(null);
+    this.onTouched();
+    this.captchaExpired.emit();
+}
 }

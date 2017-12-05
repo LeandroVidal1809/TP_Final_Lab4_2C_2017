@@ -13,7 +13,7 @@
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
-<body>
+<body class="Fondo">
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -22,7 +22,7 @@ body {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
     <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABM LISTA INVITADOS</a>
     <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER LISTA</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CARGAR MESAS</a>
+    <a (click)="Redirect('Cargamesa')" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CARGAR MESAS</a>
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">RESERVAS <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -36,7 +36,7 @@ body {font-family: "Lato", sans-serif}
 </div>
 <br><br><br><br><br><br>
 <div class="container">
-  <h1>Palace  {{tipo}}</h1>
+  <h1 style="color:white">Palace  {{tipo}}</h1>
   <div class="row">
       <div class='col-sm-4'>
         
@@ -44,7 +44,7 @@ body {font-family: "Lato", sans-serif}
             <br><br>
 
   <div class="ui-g-12 ui-md-4">
-    <label style="font-size:20px;">Fecha:</label><p-calendar  [(ngModel)]="date2" [locale]="es" dateFormat="dd/mm/yy"></p-calendar> {{date2|date}}
+    <label style="font-size:20px;color:white;">Fecha:</label><p-calendar  [(ngModel)]="date2" [locale]="es" dateFormat="dd/mm/yy"></p-calendar> {{date2|date}}
     </div>                
   </div>  
           
@@ -53,4 +53,5 @@ body {font-family: "Lato", sans-serif}
       <div class='col-sm-4'>
           <button (click)="Reserva()" class="btn1"><span>Reserva! </span></button>
       </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
  </div>

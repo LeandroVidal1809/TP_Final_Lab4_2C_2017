@@ -1,3 +1,109 @@
-<p>
-  cargamesa works!
-</p>
+
+  <!DOCTYPE html>
+  <html>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+  <script src="node_modules/primeui/primeui-ng-all.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css" />
+  <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+  <style>
+  body {font-family: "Lato", sans-serif}
+  .mySlides {display: none}
+  </style>
+  <body class="Fondo">
+  
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+      <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABM LISTA INVITADOS</a>
+      <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER LISTA</a>
+      <a (click)="Redirect('Cargamesa')" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CARGAR MESAS</a>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">RESERVAS <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a  (click)="Redirect('Confort')" class="w3-bar-item w3-button">Palace Confort</a>
+          <a (click)="Redirect('Extend')" class="w3-bar-item w3-button">Palace Extend</a>
+          <a (click)="Redirect('Kids')" class="w3-bar-item w3-button">Palace Kids</a>
+        </div>
+      </div>
+      <a href="javascript:void(0)" (click)="cerrar()" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Cerrar Sesión &nbsp;<i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <br><br><br><br><br><br>
+  <div class="container">
+    <div class="row">
+        <div class='col-sm-4'>
+          <table>
+            <tbody>
+            <td>
+                <tr>
+                  <div >
+                        <label style="font-size:20px;">Fecha-Salón</label>
+                    <select  class="btn-primary"  style="font-size:24px;" [(ngModel)]="fecha" >
+                        <option *ngFor="let item of arrayfechas">{{item.fecha}}-Salón {{item.salon}}</option>
+                    </select>
+                </div>
+                </tr>
+                <tr>
+                    <label style="font-size:20px;">Mesa</label><br>
+                    <select class="btn-primary" style="font-size:24px;" [(ngModel)]="mesa" >
+                        <option >Mesa 1</option>
+                        <option >Mesa 2</option>
+                        <option >Mesa 3</option>
+                        <option >Mesa 4</option>
+                        <option >Mesa 5</option>
+                    </select>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <input class="invitado" id="Invitado1" type="text"  [(ngModel)]="Invitado1"  name="Invitado1" placeholder="Invitado 1">
+                </tr>
+                <tr>
+                    <input class="invitado" id="Invitado2" type="text"  [(ngModel)]="Invitado2"  name="Invitado2" placeholder="Invitado 2">
+                </tr>                
+                <tr>
+                    <input class="invitado" id="Invitado3" type="text"  [(ngModel)]="Invitado3"  name="Invitado4" placeholder="Invitado 3">
+                </tr>                
+                <tr>
+                    <input class="invitado" id="Invitado4" type="text"  [(ngModel)]="Invitado4"  name="Invitado3" placeholder="Invitado 4">
+                </tr>                
+                <tr>
+                    <input class="invitado" id="Invitado5" type="text"  [(ngModel)]="Invitado5"  name="Invitado5" placeholder="Invitado 5">
+                </tr>                
+                <tr>
+                    <input class="invitado" id="Invitado6" type="text"  [(ngModel)]="Invitado6"  name="Invitado6" placeholder="Invitado 6">
+                </tr>                
+                <tr>
+                    <input class="invitado" id="Invitado7" type="text"  [(ngModel)]="Invitado7"  name="Invitado7" placeholder="Invitado 7">
+                </tr>               
+                 <tr>
+                    <input class="invitado" id="Invitado8" type="text"  [(ngModel)]="Invitado8"  name="Invitado8" placeholder="Invitado 8">
+                </tr>
+                <tr>
+                    <input class="invitado" id="Invitado9" type="text"  [(ngModel)]="Invitado9"  name="Invitado9" placeholder="Invitado 9">
+                </tr>             
+                  <tr>
+                    <input class="invitado" id="Invitado10" type="text"  [(ngModel)]="Invitado10"  name="Invitado10" placeholder="Invitado 10">
+                </tr>
+            </td>
+            <td>
+                    
+                            <button (click)="CargaMesa()" class="btn1"><span>Cargar mesa! </span></button>
+                    
+            </td>
+
+            </tbody>
+          </table>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   </div>
+  

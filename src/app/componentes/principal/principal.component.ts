@@ -48,6 +48,9 @@ export class PrincipalComponent implements OnInit {
       this.router.navigate(['/Reservas']);
       localStorage.setItem("Tipo","Confort");
       break;
+      case  'Cargamesa':
+      this.router.navigate(['/CargarMesas']);      
+      break;
      }
    }
   ngOnInit() {

@@ -35,6 +35,23 @@ export class PersonaService {
    
   }
 
+
+  CargaMesa(fecha:string,mesa:string,salon:string,lista:Array<any>, callback: (mensaje: string) => void)
+  {
+    this.AP.APICargaMesa("Carga/" ,fecha,mesa,salon,lista, data => { 
+      callback(data);
+    });
+  }
+
+  TraerReservas(callback: (data: any) => void)
+  {
+   
+    this.AP.APIGetReserva("Reserva/" , data => { 
+      callback(data);
+    });
+
+
+  }
   Reservar(fecha:string, callback: (mensaje: string) => void)
   {
 
