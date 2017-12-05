@@ -52,6 +52,15 @@ export class PersonaService {
 
 
   }
+  CompruebaHash(hash:string,callback: (data: any) => void)
+  {
+   
+    this.AP.APIGetHash("Hash/" ,hash, data => { 
+      callback(data);
+    });
+
+
+  }
   Reservar(fecha:string, callback: (mensaje: string) => void)
   {
 

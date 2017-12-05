@@ -52,6 +52,16 @@ export class ArchivoPersonaService {
       var datos = data.json();
       callback(datos);
     }); 
+  }
+    public APIGetHash(Ruta:string,hash:string, callback: (mensaje: any) => void)
+    {
+     var rta =  this.mihttp.PostTraeHash(path + Ruta ,hash, data => {
+      var datos = data.json();
+  
+       callback(datos);
+     }); 
+
+    
 
    }
    

@@ -98,3 +98,6 @@ form.go-right input:focus + label, form.go-right textarea:focus + label {
        while the background image is loading */
     background-color: #464646;
 }
+agm-map {
+    height: 300px;
+  }

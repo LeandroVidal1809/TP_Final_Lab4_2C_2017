@@ -26,16 +26,24 @@ body {font-family: "Lato", sans-serif}
           <h2>Obten la ubicación</h2>
                 <p style="background-color:grey;border:3px solid black">Si eres invitado a la fiesta, te habran entregado un codigo hash, ingresalo para obtener la dirección</p>
           <div class="form-group">
-          <input id="name" name="name" type="text" class="form-control" required>
+          <input  (keyup.enter)="compruebaHash()" [(ngModel)]="hash" id="name" name="name" type="text" class="form-control" required>
           <label for="name">Código</label>
         </div>
-        <div class="form-group">
-          <input id="phone" name="phone" type="tel" class="form-control" required>
-          <label for="phone">Tu dirección</label>
-        </div>
+
         </form>
       </div>
     </div>
-<br><br><br><br><br><br><br><br><br><br><br>
+  
+    <div [hidden]="!ok"  class="container">
+        <h1>Selecciona tu dirección para llevarte hacia la fiesta</h1>
+        <div class="form-group">
+          <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+        </div>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+          <agm-marker [latitude]="latitudeActual" [longitude]="longitudeActual"></agm-marker>
+          
+        </agm-map>
+      </div><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

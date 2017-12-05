@@ -72,6 +72,23 @@ export class MiHttpService {
          });
    
   }
+  PostTraeHash( url:string,hash:string, callback: (r: Response) => void)
+  {
+    
+    //alert(hash);
+    let data = new URLSearchParams();
+    data.append('hash', hash);
+        this.http
+       .post(url,data)
+       .map(res => res)  
+       .subscribe(callback, 
+         error => {
+           alert("Ocurrio un error al registrarse" );
+         });
+   
+  }
+  
+
   PostCargaMesa(url:string,fecha:string,mesa:string,salon:string,lista:Array<any>, callback: (r: Response) => void)
   {
   let data = new URLSearchParams();
