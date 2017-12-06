@@ -44,7 +44,14 @@ export class ArchivoPersonaService {
         callback(mensaje);
       }); 
     }
-  
+    APICargaEncuesta
+    public  APICargaMesa(Ruta:string,lista:Array<any>, callback: (mensaje: string) => void)
+    { 
+      var rta =  this.mihttp.PostCargaEncuesta(path + Ruta ,lista, data => { 
+         var mensaje = JSON.parse(data.text()).mensaje;
+         callback(mensaje);
+       }); 
+     }
     public APIGetReserva(Ruta:string, callback: (data: any) => void)
    {
     var rta =  this.mihttp.PostTraeReservas(path + Ruta , data => {;
@@ -60,11 +67,17 @@ export class ArchivoPersonaService {
   
        callback(datos);
      }); 
-
-    
+    }
+     public APIGetLista(Ruta:string,fecha:string,salon:string, callback: (data: any) => void)
+     {
+      var rta =  this.mihttp.PostTraeLista(path + Ruta ,fecha,salon, data => {;
+       
+        var datos = data.json();
+        callback(datos);
+      }); 
+    }
+     
 
    }
    
   
-
-}

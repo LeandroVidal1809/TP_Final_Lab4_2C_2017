@@ -1,0 +1,215 @@
+
+  <!DOCTYPE html>
+  <html>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+  <script src="node_modules/primeui/primeui-ng-all.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css" />
+  <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+      <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <style>
+  body {font-family: "Lato", sans-serif}
+  .mySlides {display: none}
+  </style>
+  <body  class="Fondo">
+      <form class="form-horizontal">
+  <fieldset>
+  
+  <!-- Form Name -->
+  <legend style="color:white">Encuesta de satisfacción</legend>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label"  for="nombre">Cómo califica la estetica de la web?</label>  
+    <div class="well well-sm text-left">
+            <div class="btn-group" data-toggle="buttons">
+              
+              <label class="btn btn-success active">
+                <input  [(ngModel)]="Pre1" type="radio" name="options" value="1">
+                1
+              </label>
+        
+              <label class="btn btn-primary">
+                <input  [(ngModel)]="Pre1" type="radio" name="options" autocomplete="off">
+                2
+              </label>
+        
+              <label class="btn btn-info">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+                3
+              </label>
+        
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+                4
+              </label>
+        
+              <label class="btn btn-warning">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+               5
+              </label>
+        
+              <label class="btn btn-danger">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+                6
+              </label>
+              <label class="btn btn-success active">
+                <input type="radio" name="options" id="option6" autocomplete="off" chacked>
+                7
+              </label>
+        
+              <label class="btn btn-primary">
+                <input type="radio" name="options" id="option7" autocomplete="off">
+                8
+              </label>
+        
+              <label class="btn btn-info">
+                <input type="radio" name="options" id="option8" autocomplete="off">
+                9
+              </label>
+        
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option9" autocomplete="off">
+                10
+              </label>
+          
+          </div>
+        
+        
+          </div>
+  
+  </div>
+  
+
+  
+  <!-- Select Basic -->
+  <div class="form-group">
+    <label class="col-md-4 control-label"  style="color:white" for="areg">Cómo califica la accesibilidad a todas las funciones que se le brinda a los clientes?</label>
+    <div class="col-md-4">
+      <select [(ngModel)]="Pre2" name="areg" class="form-control">
+        <option value="Excelente">Excelente</option>
+        <option value="MuyBueno">Muy Bueno</option>
+        <option value="Bueno">Bueno</option>
+        <option value="Regular">Regular</option>
+        <option value="Malo">Malo</option>
+      </select>
+    </div>
+  </div>
+  <div class="well well-sm text-left">
+    <!-- Multiple Radios -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="edad">Cual de nuestros salones cree que cumple con todas sus necesidades?</label>
+        <div class="col-md-4">
+        <div class="radio">
+          <label for="edad-0">
+            <input type="radio" name="edad" id="edad-0" value="1" checked="checked">
+            Confort
+          </label>
+        </div>
+        <div class="radio">
+          <label for="edad-1">
+            <input type="radio" name="edad" id="edad-1" value="2">
+            Extend
+          </label>
+        </div>
+        <div class="radio">
+            <label for="edad-1">
+              <input type="radio" name="edad" id="edad-1" value="2">
+              Kids
+            </label>
+          </div>
+        </div>
+      </div>
+
+  </div>
+    <!-- Select Basic -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="timue"  style="color:white">La geolocalización para los invitados,le fue útil?</label>
+        <div class="col-md-4">
+          <select [(ngModel)]="Pre4" name="timue" class="form-control">
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+            <option value="Nose">No se uso</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Select Basic -->
+      <div class="form-group">
+          <div class="well well-sm text-left" >
+            <label class="col-md-4 control-label" for="tipins">Utilizó nuestra importación de listas?</label>
+            
+              <select [(ngModel)]="Pre5"  name="tipins" class="form-control" style="width:33%;margin-left:20%">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+                <option value="Nose">No lo encontré</option>
+              </select>
+            
+          </div>
+      </div>
+      
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="vali"  style="color:white">El sistema lo uso desde una pc o desde un dispositivo movil?</label>
+        <div class="col-md-4">
+          <select [(ngModel)]="Pre6"  name="vali" class="form-control">
+            <option value="Pc">PC</option>
+            <option value="Movil">Dispositivo Movil</option>
+            <option value="Otr">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-md-4 control-label" for="edad">Volvería a elegirnos?</label>
+      <div class="well well-sm text-left" >
+          
+              <div  class="btn-group" style="margin-left:10%" data-toggle="buttons">
+                <label class="btn btn-default btn-lg active">				
+                  <span class="">
+                    <i class="fa fa-check"></i> SI
+                  </span>
+                          <input type="checkbox" autocomplete="off" checked>
+                  <span class="">
+                    <i class="fa fa-times"></i> NO
+                  </span>
+                </label>
+              </div>
+      </div>
+      </div>
+
+
+  <!-- Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" [(ngModel)]="Pre7"  for="livari"  style="color:white">Tiene alguna sugerencia para hacernos?</label>
+    <div class="col-md-4">                     
+      <textarea class="form-control" id="livari" name="livari"></textarea>
+    </div>
+  </div>
+ <div>
+ <label style="float:left;color:green">Gracias por realizar la encuestra, es importante para seguir mejorando</label>
+  <button (click)="algo()" class="btn1"><span>Enviar! </span></button>
+ </div>  
+</fieldset>
+  </form>
+  
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+    </body>
+  </html>

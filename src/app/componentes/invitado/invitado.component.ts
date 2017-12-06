@@ -21,6 +21,8 @@ export class InvitadoComponent implements OnInit {
   public latitudeExtend: number;
   public latitudeKids: number;
   public latitudeActual: number;
+  salon:string;
+  fecha:string;
   ok:boolean;
   public searchControl: FormControl;
   public zoom: number;
@@ -46,8 +48,6 @@ export class InvitadoComponent implements OnInit {
   ngOnInit() {
     //set google maps defaults
     this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
     
     //create search FormControl
     this.searchControl = new FormControl();
@@ -106,22 +106,27 @@ export class InvitadoComponent implements OnInit {
               {
                 this.latitudeActual=this.latitudeExtend;
                 this.longitudeActual=this.longitudeExtend;
+                this.salon="Extend";
+                
                 break;
               }
               case 'Confort':
               {
                 this.latitudeActual=this.latitudeConfort;
                 this.longitudeActual=this.longitudeConfort;
+                this.salon="Confort";
                 break;
               }
               case 'Kids':
               {
                 this.latitudeActual=this.latitudeKids;
                 this.longitudeActual=this.longitudeKids;
+                this.salon="Kids";
                 break;
               }
-
-            } 
+            
+            }
+            this.fecha=data['fecha']; 
             this.ok=true;
           }
   });

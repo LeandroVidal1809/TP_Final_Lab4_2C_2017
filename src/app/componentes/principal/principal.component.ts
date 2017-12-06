@@ -35,7 +35,7 @@ export class PrincipalComponent implements OnInit {
      debugger;
      switch(ruta)
      {
-
+  
       case 'Kind':
       this.router.navigate(['/Reservas']);
       localStorage.setItem("Tipo","Kind");
@@ -50,6 +50,12 @@ export class PrincipalComponent implements OnInit {
       break;
       case  'Cargamesa':
       this.router.navigate(['/CargarMesas']);      
+      break;
+      case  'Listado':
+      this.router.navigate(['/Listado']);      
+      break;
+      case  'Home':
+      this.router.navigate(['/Principal']);      
       break;
      }
    }

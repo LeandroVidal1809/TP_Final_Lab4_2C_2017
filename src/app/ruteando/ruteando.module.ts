@@ -5,7 +5,9 @@ import {LoginComponent} from '../componentes/login/login.component';
 import {ReservasComponent} from '../componentes/reservas/reservas.component';
 import {CargamesaComponent} from '../componentes/cargamesa/cargamesa.component';
 import {InvitadoComponent} from '../componentes/invitado/invitado.component';
+import {ListadoComponent} from '../componentes/listado/listado.component';
 import {InicioComponent} from '../componentes/inicio/inicio.component';
+import {EncuestaComponent} from '../componentes/encuesta/encuesta.component';
 import { RouterModule, Routes } from '@angular/router';
 
 // declaro donde quiero que se dirija
@@ -14,6 +16,8 @@ const MiRuteo = [
 {path: 'CargarMesas' , component: CargamesaComponent},
 {path: 'Invitados' , component: InvitadoComponent},
 {path: 'Reservas' , component: ReservasComponent},
+{path: 'Listado' , component: ListadoComponent},
+{path: 'Encuesta' , component: EncuestaComponent},
 {path: 'Login' , component: LoginComponent},
 {path: '' , component: InicioComponent},
 

@@ -95,4 +95,41 @@ mesa:string;
   this.arraymesa.push(this.Invitado9);
   this.arraymesa.push(this.Invitado10);
  }
+
+
+ Redirect(ruta:string)
+ {
+   debugger;
+   switch(ruta)
+   {
+
+    case 'Kind':
+    this.router.navigate(['/Reservas']);
+    localStorage.setItem("Tipo","Kind");
+    break;
+    case 'Extend':
+    this.router.navigate(['/Reservas']);
+    localStorage.setItem("Tipo","Extend");
+    break;
+    case 'Confort':
+    this.router.navigate(['/Reservas']);
+    localStorage.setItem("Tipo","Confort");
+    break;
+    case  'Cargamesa':
+    this.router.navigate(['/CargarMesas']);      
+    break;
+    case  'Listado':
+    this.router.navigate(['/Listado']);      
+    break;
+    case  'Home':
+    this.router.navigate(['/Principal']);      
+    break;
+   }
+ }
+cerrar()
+{
+sessionStorage.clear();
+this.router.navigate(['']);
+}
+
 }

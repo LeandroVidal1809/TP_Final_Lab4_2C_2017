@@ -3,6 +3,9 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
@@ -19,46 +22,50 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABM LISTA INVITADOS</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER LISTA</a>
+    <a  (click)="Redirect('Home')"class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a  (click)="Redirect('Listado')"  class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER LISTA</a>
     <a (click)="Redirect('Cargamesa')" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CARGAR MESAS</a>
-    <div class="w3-dropdown-hover w3-hide-small">
+    <div  class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">RESERVAS <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         <a  (click)="Redirect('Confort')" class="w3-bar-item w3-button">Palace Confort</a>
         <a (click)="Redirect('Extend')" class="w3-bar-item w3-button">Palace Extend</a>
         <a (click)="Redirect('Kids')" class="w3-bar-item w3-button">Palace Kids</a>
+  
       </div>
     </div>
+    <a  (click)="download()" style="margin-left: 2%;">
+        <img src="/assets/img/LogoExcel.jpg">
+    </a>
     <a href="javascript:void(0)" (click)="cerrar()" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Cerrar Sesión &nbsp;<i class="fa fa-times" aria-hidden="true"></i></a>
   </div>
 </div>
 <br><br><br><br><br><br>
+
 <div class="container">
-  <h1 style="color:white">Palace  {{tipo}}</h1>
-  <div class="row">
-      <div class='col-sm-4'>
-        
-          <div class="form-group">
-            <br><br>
 
-  <div class="ui-g-12 ui-md-4">
-    <label style="font-size:20px;color:white;">Fecha:</label><p-calendar  [(ngModel)]="date2" [locale]="es" dateFormat="dd/mm/yy"></p-calendar> {{date2|date}}
-    </div>                
-  </div>  
-          
-         
-      </div>
-      <div class='col-sm-4'>
-          <button (click)="Reserva()" class="btn1"><span>Reserva! </span></button>
-      </div>
+    <div >
+        <label style="font-size:50px;">FECHA-SALON</label>
+    <select  class="btn-success"  style="font-size:50px;" [(ngModel)]="fecha" >
+        <option *ngFor="let item of arrayfechas">{{item.fecha}}-Salón {{item.salon}}</option>
+    </select>
+    <button (click)="CargaLista()" class="btn1"><span>Mostrar! </span></button>
+</div>
 
-
+<table  [hidden]="!ok" class="table table-striped" style="width: 20%;background-color:grey;margin-left:30%;">
+    <thead>
+    <td>Nombre del invitado</td>
+    <td>Mesa</td>    
+    </thead>    
+            <tbody> 
+                    <tr *ngFor="let item of unarray">
+                <td  >{{item.Nombre}}</td>
+                <td  >{{item.Mesa}}</td>            
+                    </tr>
+            </tbody>
+         </table>                 
+     <br><br><br><br><br><br><br>
  </div>
- <div [hidden]="!ok" style="margin-left:00%;background-color:grey" >
-    <label style="color:white;font-size:30px;">Nos seria de gran ayuda que respondas la siguiente encuesta</label>
-      <button (click)="Redirect('Encuesta')" class="btn1"><span>Encuesta! </span></button>
-  </div>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div></body>
+ 
+ <div [hidden]="ok"><br><br><br><br><br><br><br><br><br><br><br><br> </div>
+</body>

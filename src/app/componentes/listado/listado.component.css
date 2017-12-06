@@ -5,16 +5,16 @@
 
 .btn1 {
     border-radius: 10px;
-    background-color: #080032;
+    background-color: #092A00;
     border: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 28px;
     padding: 20px;
-    width: 240px;
+    width: 180px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 50%;
+    float: right;
   }
   
   .btn1 span {
@@ -43,7 +43,7 @@
   }
   
   .Fondo{
-    background-image: url("/assets/img/cargamesa.jpg"); 
+    background-image: url("/assets/img/excel.jpg"); 
     background-position: center center;
     
     /* Background image doesn't tile */
@@ -60,10 +60,4 @@
     /* Set a background color that will be displayed
        while the background image is loading */
     background-color: #464646;
-}
-.btn span.glyphicon {    			
-	opacity: 0;				
-}
-.btn.active span.glyphicon {				
-	opacity: 1;				
 }

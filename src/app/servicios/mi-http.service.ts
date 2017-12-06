@@ -72,6 +72,22 @@ export class MiHttpService {
          });
    
   }
+  PostTraeLista( url:string,fecha:string,salon:string, callback: (r: Response) => void)
+  {
+    
+    let data = new URLSearchParams();
+    data.append('fecha', fecha);
+    data.append('salon',salon);
+        this.http
+       .post(url,data)
+       .map(res => res)  
+       .subscribe(callback, 
+         error => {
+           alert("Ocurrio un error al registrarse" );
+         });
+   
+  }
+
   PostTraeHash( url:string,hash:string, callback: (r: Response) => void)
   {
     
@@ -88,6 +104,30 @@ export class MiHttpService {
    
   }
   
+
+
+  PostCargaEncuesta(url:string,lista:Array<any>, callback: (r: Response) => void)
+  {
+  let data = new URLSearchParams();
+  var cliente = localStorage.getItem("cliente");
+   data.append('cliente',cliente);
+   
+   data.append('pre2', lista[0]);
+   data.append('pre4', lista[1]);
+   data.append('pre5', lista[2]);
+   data.append('pre6', lista[3]);
+   data.append('pre7', lista[4]);
+   
+
+   debugger;
+       this.http
+      .post(url,data)
+      .map(res => res)  
+      .subscribe(callback, 
+        error => {
+          alert("Ocurrio un error al registrarse" );
+        });
+  }
 
   PostCargaMesa(url:string,fecha:string,mesa:string,salon:string,lista:Array<any>, callback: (r: Response) => void)
   {

@@ -12,15 +12,18 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class ReservasComponent implements OnInit {
 tipo:string;
 fecha:string;
+ok:boolean;
 value: Date;
 constructor(private PersonaS:PersonaService,private route: ActivatedRoute,
     private router: Router) {
+      
         if(sessionStorage.getItem("token")==undefined)
             {
               this.router.navigate(['/Login']);
             }
    this.tipo= localStorage.getItem("Tipo");
-   }
+   this.ok=false; 
+  }
 
   
    date1: Date;
@@ -84,14 +87,26 @@ this.router.navigate(['']);
  Reserva()
  {
    //consulta
+
+   if(this.date2!=undefined)
+    {
      var fec = this.date2.getDate()+"/"+this.date2.getMonth()+"/"+this.date2.getFullYear();
    var respuesta=  this.PersonaS.Reservar(fec, mensaje => { 
-    if(mensaje!=undefined)
+    if(mensaje!="NO")
       {
-          
+          this.ok=true;
         alert(mensaje);
       }
+      else
+        {
+          alert("Esta fecha ya fue Reservada, elija otra por favor");
+        }
   });
+  }
+  else
+  {
+    alert("Seleccione una fecha por favor");
+  }
  }
 
 
@@ -115,6 +130,9 @@ this.router.navigate(['']);
     break;
     case  'Cargamesa':
     this.router.navigate(['/CargarMesas']);      
+    break;
+    case  'Encuesta':
+    this.router.navigate(['/Encuesta']);      
     break;
    }
  }

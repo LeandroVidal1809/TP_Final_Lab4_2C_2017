@@ -42,7 +42,13 @@ export class PersonaService {
       callback(data);
     });
   }
-
+  CargaEncuesta(lista:Array<any>, callback: (mensaje: string) => void)
+  {
+    this.AP.APICargaEncuesta("Encuesta/" ,lista, data => { 
+      callback(data);
+    });
+  }
+ 
   TraerReservas(callback: (data: any) => void)
   {
    
@@ -52,6 +58,18 @@ export class PersonaService {
 
 
   }
+
+
+  TraerLista(fecha:string,salon:string,callback: (data: any) => void)
+  {
+   
+    this.AP.APIGetLista("Lista/" ,fecha,salon, data => { 
+      callback(data);
+    });
+
+
+  }
+ 
   CompruebaHash(hash:string,callback: (data: any) => void)
   {
    

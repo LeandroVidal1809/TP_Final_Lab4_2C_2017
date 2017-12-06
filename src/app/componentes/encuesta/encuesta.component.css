@@ -1,11 +1,20 @@
-.invitado{
-    margin-left: 50%;
-    margin-top: 2%;
+.btn span:nth-of-type(1)  {        		
+	display: none;
+}
+.btn span:last-child  {            	
+	display: block;		
+}
+
+.btn.active  span:nth-of-type(1)  {            	
+	display: block;		
+}
+.btn.active span:last-child  {            	
+	display: none;			
 }
 
 .btn1 {
     border-radius: 10px;
-    background-color: #080032;
+    background-color: #137D01;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -14,7 +23,8 @@
     width: 240px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 50%;
+    float: right;
+    margin: 5%;
   }
   
   .btn1 span {
@@ -41,9 +51,8 @@
     opacity: 1;
     right: 0;
   }
-  
   .Fondo{
-    background-image: url("/assets/img/cargamesa.jpg"); 
+    background-image: url("/assets/img/encuesta.jpg"); 
     background-position: center center;
     
     /* Background image doesn't tile */
@@ -60,10 +69,4 @@
     /* Set a background color that will be displayed
        while the background image is loading */
     background-color: #464646;
-}
-.btn span.glyphicon {    			
-	opacity: 0;				
-}
-.btn.active span.glyphicon {				
-	opacity: 1;				
 }
